@@ -30,6 +30,15 @@ try
     //    options.Limits.MaxRequestBodySize = 10 * 1024 * 1024; // 10MB
     //});
 
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowFrontend",
+            policy => policy
+                .WithOrigins("https://hackatonalealencarr.vercel.app")
+                .AllowAnyHeader()
+                .AllowAnyMethod());
+    });
+
     var app = builder.Build();
     app.UseHttpMetrics();
     await app.InitializeApp(Log.Logger);
@@ -37,7 +46,11 @@ try
     app.RegisterPipeline();
     app.AddHealthChecks();
 
-     
+
+
+    app.UseCors("AllowFrontend");
+
+
     app.MapGet("/", () => Results.Ok("FIAP X - Sistema de Processamento de Vídeos - Running"))
         .WithTags("Status")
         .WithName("Home");
