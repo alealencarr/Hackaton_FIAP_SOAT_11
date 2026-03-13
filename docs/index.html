@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIAP X - Documentação do Projeto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #13131a;
+            --bg-card-hover: #1a1a24;
+            --text-primary: #ffffff;
+            --text-secondary: #9ca3af;
+            --accent-cyan: #06b6d4;
+            --accent-purple: #8b5cf6;
+            --accent-pink: #ec4899;
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --accent-red: #ef4444;
+            --gradient-main: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #ec4899 100%);
+            --border-color: rgba(255,255,255,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* Animated Background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(236, 72, 153, 0.05) 0%, transparent 70%);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--accent-cyan); }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-content { max-width: 900px; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.5rem;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--accent-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-main);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Video Section */
+        .video-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-card) 0%, #1a1a2e 100%);
+            color: var(--text-secondary);
+        }
+
+        .video-placeholder svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-main);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Architecture Diagram */
+        .diagram-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            overflow-x: auto;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .tech-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .tech-item:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-purple);
+        }
+
+        .tech-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tech-item h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-item p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Database Schema */
+        .schema-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .table-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+            padding: 1.25rem 1.5rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .table-body {
+            padding: 1.5rem;
+        }
+
+        .column-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .column-row:last-child {
+            border-bottom: none;
+        }
+
+        .column-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .column-type {
+            color: var(--accent-cyan);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+        }
+
+        .pk-badge {
+            background: var(--accent-yellow);
+            color: black;
+            padding: 0.125rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+
+        .fk-badge {
+            background: var(--accent-purple);
+            color: white;
+            padding: 0.125rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+
+        /* API Endpoints */
+        .endpoint-group {
+            margin-bottom: 2rem;
+        }
+
+        .endpoint-group h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+        }
+
+        .endpoint {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .method {
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .method-get { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+        .method-post { background: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); }
+        .method-put { background: rgba(245, 158, 11, 0.2); color: var(--accent-yellow); }
+        .method-delete { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+
+        .endpoint-path {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+
+        .endpoint-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .endpoint-auth {
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--accent-purple);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Repos */
+        .repos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .repo-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .repo-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+        }
+
+        .repo-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .repo-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .repo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .repo-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Team */
+        .team-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .team-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-section p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero-buttons { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .schema-container { grid-template-columns: 1fr; }
+            .endpoint { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <nav>
+        <div class="container">
+            <div class="logo">FIAP X</div>
+            <ul>
+                <li><a href="#video">Apresentação</a></li>
+                <li><a href="#architecture">Arquitetura</a></li>
+                <li><a href="#database">Banco de Dados</a></li>
+                <li><a href="#infra">Infraestrutura</a></li>
+                <li><a href="#api">API</a></li>
+                <li><a href="#repos">Repositórios</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                🎓 Hackathon SOAT10 - Pós-Graduação FIAP
+            </div>
+            <h1>Sistema de Processamento de <span>Vídeos</span></h1>
+            <p>Arquitetura de microsserviços escalável para processamento assíncrono de vídeos com extração de frames, utilizando as melhores práticas de desenvolvimento de software.</p>
+            <div class="hero-buttons">
+                <a href="#video" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Ver Apresentação
+                </a>
+                <a href="#repos" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    Ver Repositórios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section id="video">
+        <div class="section-header">
+            <h2>📹 Vídeo de Apresentação</h2>
+            <p>Demonstração completa do sistema funcionando</p>
+        </div>
+        <div class="video-container">
+            <!-- SUBSTITUA 'VIDEO_ID' pelo ID do seu vídeo do YouTube -->
+            <!-- Exemplo: se a URL é https://www.youtube.com/watch?v=abc123, o ID é abc123 -->
+            <iframe 
+                src="https://www.youtube.com/embed/VIDEO_ID" 
+                title="FIAP X - Apresentação"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+        <div class="section-header">
+            <h2>✨ Funcionalidades</h2>
+            <p>Requisitos funcionais implementados</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">🎬</div>
+                <h3>Processamento Múltiplo</h3>
+                <p>Processa múltiplos vídeos simultaneamente através de workers escaláveis conectados via RabbitMQ.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔒</div>
+                <h3>Autenticação JWT</h3>
+                <p>Sistema protegido por usuário e senha com tokens JWT para acesso seguro às funcionalidades.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Status em Tempo Real</h3>
+                <p>Listagem completa dos vídeos com status: Pending, Processing, Completed ou Failed.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📧</div>
+                <h3>Notificações por E-mail</h3>
+                <p>Microsserviço dedicado para envio de notificações quando o processamento é concluído.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📦</div>
+                <h3>Download ZIP</h3>
+                <p>Download das imagens extraídas em formato ZIP compactado, pronto para uso.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Alta Disponibilidade</h3>
+                <p>Arquitetura resiliente com filas que não perde requisições em picos de acesso.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section id="architecture">
+        <div class="section-header">
+            <h2>🏗️ Arquitetura do Sistema</h2>
+            <p>Microsserviços independentes comunicando via mensageria</p>
+        </div>
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TB
+    subgraph Client["🖥️ Cliente"]
+        FE["Frontend React"]
+    end
+
+    subgraph Azure["☁️ Azure Kubernetes Service"]
+        subgraph API["📡 fiapx-api"]
+            A1["API REST"]
+            A2["JWT Auth"]
+        end
+
+        subgraph MQ["🐰 RabbitMQ"]
+            Q1["video-processing-queue"]
+            Q2["email-queue"]
+        end
+
+        subgraph Worker["⚙️ fiapx-worker"]
+            W1["Video Processor"]
+            W2["FFmpeg"]
+        end
+
+        subgraph Email["📧 fiapx-email"]
+            E1["Email Consumer"]
+            E2["SMTP Sender"]
+        end
+    end
+
+    subgraph Storage["💾 Azure Storage"]
+        DB[(SQL Database)]
+        BLOB[(Blob Storage)]
+    end
+
+    FE -->|HTTP/REST| A1
+    A1 -->|Publish| Q1
+    A1 -->|Publish| Q2
+    A1 -->|Read/Write| DB
+    A1 -->|Upload| BLOB
+    Q1 -->|Consume| W1
+    W1 --> W2
+    W1 -->|Update Status| DB
+    W1 -->|Save Frames| BLOB
+    W1 -->|Publish| Q2
+    Q2 -->|Consume| E1
+    E1 --> E2
+
+    style API fill:#0ea5e9,stroke:#0284c7,color:#fff
+    style Worker fill:#8b5cf6,stroke:#7c3aed,color:#fff
+    style Email fill:#ec4899,stroke:#db2777,color:#fff
+    style MQ fill:#f59e0b,stroke:#d97706,color:#fff
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section id="tech">
+        <div class="section-header">
+            <h2>🛠️ Stack Tecnológica</h2>
+            <p>Tecnologias utilizadas no projeto</p>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <div class="icon">🔷</div>
+                <h4>.NET 8</h4>
+                <p>Backend</p>
+            </div>
+            <div class="tech-item">
+                <div class="icon">🐰</div>
+                <h4>RabbitMQ</h4>
+                <p>Mensageria</p>
+            </div>
+            <div class="tech-item">
+                <div class="icon">🗄️</div>
+                <h4>SQL Server</h4>
+                <p>Banco de Dados</p>
+            </div>
+            <div class="tech-item">
+                <div class="icon">🎬</div>
+                <h4>FFmpeg</h4>
+                <p>Processamento</p>
+            </div>
+            <div class="tech-item">
+                <div class="icon">🐳</div>
+                <h4>Docker</h4>
+                <p>Containers</p>
+            </div>
+            <div class="tech-item">
+                <div class="icon">☸️</div>
+                <h4>Kubernetes</h4>
+                <p>Orquestração</p>
+            </div>
+            <div class="tech-item">
+                <div class="icon">☁️</div>
+                <h4>Azure</h4>
+                <p>Cloud</p>
+            </div>
+            <div class="tech-item">
+                <div class="icon">🏗️</div>
+                <h4>Terraform</h4>
+                <p>IaC</p>
+            </div>
+            <div class="tech-item">
+                <div class="icon">📊</div>
+                <h4>Prometheus</h4>
+                <p>Métricas</p>
+            </div>
+            <div class="tech-item">
+                <div class="icon">📈</div>
+                <h4>Grafana</h4>
+                <p>Dashboards</p>
+            </div>
+            <div class="tech-item">
+                <div class="icon">🔄</div>
+                <h4>GitHub Actions</h4>
+                <p>CI/CD</p>
+            </div>
+            <div class="tech-item">
+                <div class="icon">🧪</div>
+                <h4>xUnit</h4>
+                <p>Testes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database -->
+    <section id="database">
+        <div class="section-header">
+            <h2>🗄️ Modelo de Dados</h2>
+            <p>Estrutura das tabelas do banco de dados</p>
+        </div>
+        <div class="schema-container">
+            <div class="table-card">
+                <div class="table-header">
+                    👤 Users
+                </div>
+                <div class="table-body">
+                    <div class="column-row">
+                        <span class="column-name">Id <span class="pk-badge">PK</span></span>
+                        <span class="column-type">UNIQUEIDENTIFIER</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">Name</span>
+                        <span class="column-type">NVARCHAR(200)</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">Email</span>
+                        <span class="column-type">NVARCHAR(300)</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">PasswordHash</span>
+                        <span class="column-type">NVARCHAR(500)</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">CreatedAt</span>
+                        <span class="column-type">DATETIME2</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-card">
+                <div class="table-header">
+                    🎬 Videos
+                </div>
+                <div class="table-body">
+                    <div class="column-row">
+                        <span class="column-name">Id <span class="pk-badge">PK</span></span>
+                        <span class="column-type">UNIQUEIDENTIFIER</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">UserId <span class="fk-badge">FK</span></span>
+                        <span class="column-type">UNIQUEIDENTIFIER</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">OriginalFileName</span>
+                        <span class="column-type">NVARCHAR(500)</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">StoragePath</span>
+                        <span class="column-type">NVARCHAR(1000)</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">Status</span>
+                        <span class="column-type">INT</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">FrameCount</span>
+                        <span class="column-type">INT</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">ZipPath</span>
+                        <span class="column-type">NVARCHAR(1000)</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">ErrorMessage</span>
+                        <span class="column-type">NVARCHAR(2000)</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">CreatedAt</span>
+                        <span class="column-type">DATETIME2</span>
+                    </div>
+                    <div class="column-row">
+                        <span class="column-name">ProcessedAt</span>
+                        <span class="column-type">DATETIME2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infrastructure -->
+    <section id="infra">
+        <div class="section-header">
+            <h2>☁️ Infraestrutura</h2>
+            <p>Recursos provisionados no Azure via Terraform</p>
+        </div>
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TB
+    subgraph Azure["☁️ Microsoft Azure"]
+        subgraph RG["📁 Resource Group: rg-fiapx"]
+            subgraph AKS["☸️ Azure Kubernetes Service"]
+                API["fiapx-api<br/>Replicas: 2-10"]
+                Worker["fiapx-worker<br/>Replicas: 2-20"]
+                Email["fiapx-email<br/>Replicas: 2"]
+                RabbitMQ["RabbitMQ"]
+            end
+            
+            ACR["🐳 Azure Container Registry<br/>fiapxacr"]
+            SQL["🗄️ Azure SQL Database<br/>FiapXDb"]
+            Storage["💾 Storage Account<br/>Blob Storage"]
+        end
+    end
+
+    subgraph GitHub["🐙 GitHub"]
+        Repo["Repositories"]
+        Actions["GitHub Actions<br/>CI/CD Pipeline"]
+    end
+
+    Repo --> Actions
+    Actions -->|Push Image| ACR
+    ACR -->|Pull Image| AKS
+    API --> SQL
+    API --> Storage
+    Worker --> SQL
+    Worker --> Storage
+
+    style AKS fill:#326ce5,stroke:#fff,color:#fff
+    style ACR fill:#0078d4,stroke:#fff,color:#fff
+    style SQL fill:#0078d4,stroke:#fff,color:#fff
+    style Storage fill:#0078d4,stroke:#fff,color:#fff
+            </div>
+        </div>
+
+        <div class="cards-grid" style="margin-top: 3rem;">
+            <div class="card">
+                <div class="card-icon">☸️</div>
+                <h3>AKS - Kubernetes</h3>
+                <p>Cluster gerenciado com auto-scaling, balanceamento de carga e alta disponibilidade.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🐳</div>
+                <h3>Container Registry</h3>
+                <p>Registro privado para armazenar as imagens Docker dos microsserviços.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🗄️</div>
+                <h3>SQL Database</h3>
+                <p>Banco de dados gerenciado com backup automático e alta disponibilidade.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💾</div>
+                <h3>Blob Storage</h3>
+                <p>Armazenamento de objetos para vídeos enviados e ZIPs gerados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- API -->
+    <section id="api">
+        <div class="section-header">
+            <h2>📡 API Endpoints</h2>
+            <p>Documentação dos endpoints REST disponíveis</p>
+        </div>
+        
+        <div class="endpoint-group">
+            <h3>🔐 Autenticação</h3>
+            <div class="endpoint">
+                <span class="method method-post">POST</span>
+                <span class="endpoint-path">/api/auth/register</span>
+                <span class="endpoint-desc">Registrar novo usuário</span>
+            </div>
+            <div class="endpoint">
+                <span class="method method-post">POST</span>
+                <span class="endpoint-path">/api/auth/login</span>
+                <span class="endpoint-desc">Autenticar e obter token JWT</span>
+            </div>
+        </div>
+
+        <div class="endpoint-group">
+            <h3>🎬 Vídeos</h3>
+            <div class="endpoint">
+                <span class="method method-post">POST</span>
+                <span class="endpoint-path">/api/videos/upload</span>
+                <span class="endpoint-desc">Upload de vídeo para processamento</span>
+                <span class="endpoint-auth">🔒 Auth</span>
+            </div>
+            <div class="endpoint">
+                <span class="method method-get">GET</span>
+                <span class="endpoint-path">/api/videos</span>
+                <span class="endpoint-desc">Listar vídeos do usuário</span>
+                <span class="endpoint-auth">🔒 Auth</span>
+            </div>
+            <div class="endpoint">
+                <span class="method method-get">GET</span>
+                <span class="endpoint-path">/api/videos/{id}</span>
+                <span class="endpoint-desc">Obter detalhes de um vídeo</span>
+                <span class="endpoint-auth">🔒 Auth</span>
+            </div>
+            <div class="endpoint">
+                <span class="method method-get">GET</span>
+                <span class="endpoint-path">/api/videos/{id}/download</span>
+                <span class="endpoint-desc">Download do ZIP com frames</span>
+                <span class="endpoint-auth">🔒 Auth</span>
+            </div>
+        </div>
+
+        <div class="endpoint-group">
+            <h3>💚 Health</h3>
+            <div class="endpoint">
+                <span class="method method-get">GET</span>
+                <span class="endpoint-path">/health</span>
+                <span class="endpoint-desc">Health check da aplicação</span>
+            </div>
+            <div class="endpoint">
+                <span class="method method-get">GET</span>
+                <span class="endpoint-path">/metrics</span>
+                <span class="endpoint-desc">Métricas para Prometheus</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Repositories -->
+    <section id="repos">
+        <div class="section-header">
+            <h2>📂 Repositórios</h2>
+            <p>Código fonte dos microsserviços</p>
+        </div>
+        <div class="repos-grid">
+            <div class="repo-card">
+                <h3>📡 fiapx-api</h3>
+                <p>API REST principal com autenticação JWT, endpoints de upload/download e integração com RabbitMQ.</p>
+                <a href="https://github.com/SEU-USUARIO/fiapx-api" class="repo-link" target="_blank">
+                    Ver repositório →
+                </a>
+            </div>
+            <div class="repo-card">
+                <h3>⚙️ fiapx-worker</h3>
+                <p>Worker para processamento de vídeos com FFmpeg, extração de frames e geração de ZIP.</p>
+                <a href="https://github.com/SEU-USUARIO/fiapx-worker" class="repo-link" target="_blank">
+                    Ver repositório →
+                </a>
+            </div>
+            <div class="repo-card">
+                <h3>📧 fiapx-email</h3>
+                <p>Microsserviço de notificações por e-mail, consumindo fila de mensagens.</p>
+                <a href="https://github.com/SEU-USUARIO/fiapx-email" class="repo-link" target="_blank">
+                    Ver repositório →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team">
+        <div class="team-section">
+            <h3>🎓 Projeto Acadêmico</h3>
+            <p>Desenvolvido para o Hackathon SOAT10 da Pós-Graduação em Arquitetura de Software na FIAP</p>
+            <a href="#video" class="btn btn-primary">
+                Assistir Apresentação
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>FIAP X © 2024 - Sistema de Processamento de Vídeos | Hackathon SOAT10</p>
+    </footer>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#06b6d4',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#0891b2',
+                lineColor: '#6b7280',
+                secondaryColor: '#8b5cf6',
+                tertiaryColor: '#1f2937'
+            }
+        });
+    </script>
+</body>
+</html>
