@@ -1,0 +1,130 @@
+version: '3.8'
+
+services:
+  # SQL Server
+  # sqlserver:
+  #   image: mcr.microsoft.com/mssql/server:2022-latest
+  #   container_name: fiapx-sqlserver
+  #   environment:
+  #     - ACCEPT_EULA=Y
+  #     - SA_PASSWORD=Your_password123
+  #     - MSSQL_PID=Express
+  #   ports:
+  #     - "1433:1433"
+  #   volumes:
+  #     - sqlserver_data:/var/opt/mssql
+  #   networks:
+  #     - fiapx-network
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Your_password123 -Q 'SELECT 1'"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+
+  # RabbitMQ
+  # rabbitmq:
+  #   image: rabbitmq:3-management
+  #   container_name: fiapx-rabbitmq
+  #   environment:
+  #     - RABBITMQ_DEFAULT_USER=guest
+  #     - RABBITMQ_DEFAULT_PASS=guest
+  #   ports:
+  #     - "5672:5672"
+  #     - "15672:15672"
+  #   volumes:
+  #     - rabbitmq_data:/var/lib/rabbitmq
+  #   networks:
+  #     - fiapx-network
+  #   healthcheck:
+  #     test: ["CMD", "rabbitmqctl", "status"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+
+  # Redis (Cache)
+  redis:
+    image: redis:7-alpine
+    container_name: fiapx-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - fiapx-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # API
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fiapx-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - ConnectionStrings__DefaultConnection=Server=172.29.164.49, 1433;Database=FiapXDb;User Id=sa;Password=2025@_Futuro;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;
+      - RabbitMQ__HostName=rabbitmq
+      - RabbitMQ__Port=5672
+      - RabbitMQ__UserName=guest
+      - RabbitMQ__Password=guest
+      - Jwt__Key=408972174014y176f0aj0-ai0fnoano==090--sfa910294781940219201i09120
+      - Jwt__Issuer=FiapX
+      - Jwt__Audience=FiapX.Users
+      - Jwt__ExpirationHours=24
+      - Storage__UploadPath=/app/uploads
+      - Storage__OutputPath=/app/outputs
+    ports:
+      - "5000:80"
+    volumes:
+      - uploads_data:/app/uploads
+      - outputs_data:/app/outputs
+    # depends_on:
+      # sqlserver:
+      #   condition: service_healthy
+      # rabbitmq:
+      #   condition: service_healthy
+    networks:
+      - fiapx-network
+
+  # Worker
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: fiapx-worker
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=172.29.164.49, 1433;Database=FiapXDb;User Id=sa;Password=2025@_Futuro;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;
+      - RabbitMQ__HostName=rabbitmq
+      - RabbitMQ__Port=5672
+      - RabbitMQ__UserName=guest
+      - RabbitMQ__Password=guest
+      - Storage__UploadPath=/app/uploads
+      - Storage__OutputPath=/app/outputs
+    volumes:
+      - uploads_data:/app/uploads
+      - outputs_data:/app/outputs
+    # depends_on:
+    #   sqlserver:
+    #     condition: service_healthy
+    #   rabbitmq:
+    #     condition: service_healthy
+    networks:
+      - fiapx-network
+    deploy:
+      replicas: 1
+      # replicas: 2
+
+volumes:
+  # sqlserver_data:
+  # rabbitmq_data:
+  redis_data:
+  uploads_data:
+  outputs_data:
+
+networks:
+  fiapx-network:
+    driver: bridge

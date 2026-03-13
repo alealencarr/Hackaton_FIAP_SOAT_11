@@ -1,0 +1,8 @@
+using FiapX.Domain.Entities;
+
+namespace FiapX.Application.Interfaces.Services;
+
+public interface IJwtService
+{
+    (string Token, DateTime ExpiresAt) GenerateToken(User user);
+}

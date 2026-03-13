@@ -1,0 +1,43 @@
+using FiapX.Application.Controllers.Users;
+using FiapX.Application.Interfaces.DataSources;
+using FiapX.Application.Interfaces.Services;
+using FiapX.Infrastructure.DataSources;
+using FiapX.Infrastructure.DbContexts;
+using FiapX.Shared.DTO.User.Output;
+using FiapX.Shared.DTO.User.Request;
+using FiapX.Shared.Result;
+using Microsoft.AspNetCore.Mvc;
+using MiniValidation;
+using System.Diagnostics.CodeAnalysis;
+
+namespace FiapX.API.Endpoints.Auth;
+
+[ExcludeFromCodeCoverage]
+internal sealed class Login : IEndpoint
+{
+    public void MapEndpoint(IEndpointRouteBuilder app)
+    {
+        app.MapPost("api/auth/login",
+            async (
+                AppDbContext appDbContext,
+                IJwtService jwtService,
+                [FromBody] UserLoginRequestDto request) =>
+            {
+                if (!MiniValidator.TryValidate(request, out var errors))
+                    return Results.ValidationProblem(errors);
+
+                IUserDataSource dataSource = new UserDataSource(appDbContext);
+                var controller = new UserController(dataSource, jwtService);
+
+                var result = await controller.Login(request);
+
+                return result.Succeeded 
+                    ? Results.Ok(result) 
+                    : Results.BadRequest(result);
+            })
+            .WithTags("Auth")
+            .Produces<ICommandResult<LoginOutputDto>>()
+            .WithName("Auth.Login")
+            .AllowAnonymous();
+    }
+}

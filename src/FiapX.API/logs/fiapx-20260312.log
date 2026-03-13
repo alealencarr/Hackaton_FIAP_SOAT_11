@@ -1,0 +1,351 @@
+2026-03-12 19:38:45.438 -03:00 [INF] Iniciando FIAP X - Sistema de Processamento de Vídeos...
+2026-03-12 19:38:48.317 -03:00 [INF] Iniciando inicialização do banco de dados...
+2026-03-12 19:39:07.885 -03:00 [INF] Banco de dados inicializado com sucesso.
+2026-03-12 19:39:08.266 -03:00 [INF] Initializing UI Database
+2026-03-12 19:39:09.404 -03:00 [INF] Saving healthchecks configuration to database
+2026-03-12 19:39:10.515 -03:00 [WRN] The WebRootPath was not found: C:\Users\alexandre.santos\Desktop\Hackaton\fiapx-api\src\FiapX.API\wwwroot. Static files may be unavailable.
+2026-03-12 19:39:10.857 -03:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Normalmente é permitida apenas uma utilização de cada endereço de soquete (protocolo/endereço de rede/porta).
+ ---> System.Net.Sockets.SocketException (10048): Normalmente é permitida apenas uma utilização de cada endereço de soquete (protocolo/endereço de rede/porta).
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-03-12 19:39:11.329 -03:00 [FTL] Aplicação terminou inesperadamente
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Normalmente é permitida apenas uma utilização de cada endereço de soquete (protocolo/endereço de rede/porta).
+ ---> System.Net.Sockets.SocketException (10048): Normalmente é permitida apenas uma utilização de cada endereço de soquete (protocolo/endereço de rede/porta).
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\Users\alexandre.santos\Desktop\Hackaton\fiapx-api\src\FiapX.API\Program.cs:line 45
+2026-03-12 19:39:49.095 -03:00 [INF] Iniciando FIAP X - Sistema de Processamento de Vídeos...
+2026-03-12 19:39:51.655 -03:00 [INF] Iniciando inicialização do banco de dados...
+2026-03-12 19:39:53.127 -03:00 [INF] Banco de dados inicializado com sucesso.
+2026-03-12 19:39:53.529 -03:00 [INF] Initializing UI Database
+2026-03-12 19:39:53.634 -03:00 [INF] Saving healthchecks configuration to database
+2026-03-12 19:39:53.825 -03:00 [WRN] The WebRootPath was not found: C:\Users\alexandre.santos\Desktop\Hackaton\fiapx-api\src\FiapX.API\wwwroot. Static files may be unavailable.
+2026-03-12 19:39:54.041 -03:00 [INF] Now listening on: https://localhost:7036
+2026-03-12 19:39:54.044 -03:00 [INF] Now listening on: http://localhost:7035
+2026-03-12 19:39:54.248 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:39:54.263 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:39:54.370 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-12 19:39:54.371 -03:00 [INF] Hosting environment: Development
+2026-03-12 19:39:54.372 -03:00 [INF] Content root path: C:\Users\alexandre.santos\Desktop\Hackaton\fiapx-api\src\FiapX.API
+2026-03-12 19:39:54.659 -03:00 [INF] HTTP GET /health responded 200 in 183.9245 ms
+2026-03-12 19:39:54.662 -03:00 [INF] Received HTTP response headers after 396.2055ms - 200
+2026-03-12 19:39:54.668 -03:00 [INF] End processing HTTP request after 423.4802ms - 200
+2026-03-12 19:40:00.113 -03:00 [INF] HTTP GET /swagger responded 301 in 2.5779 ms
+2026-03-12 19:40:00.241 -03:00 [INF] HTTP GET /swagger/index.html responded 200 in 108.6467 ms
+2026-03-12 19:40:00.407 -03:00 [INF] HTTP GET /swagger/swagger-ui.css responded 200 in 97.3089 ms
+2026-03-12 19:40:00.568 -03:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 258.4082 ms
+2026-03-12 19:40:01.368 -03:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 1058.0092 ms
+2026-03-12 19:40:02.602 -03:00 [INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 0.2502 ms
+2026-03-12 19:40:02.740 -03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 161.0972 ms
+2026-03-12 19:40:05.533 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:40:05.535 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:40:05.548 -03:00 [INF] HTTP GET /health responded 200 in 12.0047 ms
+2026-03-12 19:40:05.549 -03:00 [INF] Received HTTP response headers after 12.8364ms - 200
+2026-03-12 19:40:05.551 -03:00 [INF] End processing HTTP request after 18.6153ms - 200
+2026-03-12 19:40:15.583 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:40:15.586 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:40:15.600 -03:00 [INF] HTTP GET /health responded 200 in 8.8051 ms
+2026-03-12 19:40:15.601 -03:00 [INF] Received HTTP response headers after 10.4112ms - 200
+2026-03-12 19:40:15.605 -03:00 [INF] End processing HTTP request after 22.2094ms - 200
+2026-03-12 19:40:25.614 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:40:25.615 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:40:25.625 -03:00 [INF] HTTP GET /health responded 200 in 6.5436 ms
+2026-03-12 19:40:25.625 -03:00 [INF] Received HTTP response headers after 7.7059ms - 200
+2026-03-12 19:40:25.630 -03:00 [INF] End processing HTTP request after 16.2504ms - 200
+2026-03-12 19:40:28.687 -03:00 [WRN] Acesso não autorizado detectado para: /api/videos/upload
+2026-03-12 19:40:28.689 -03:00 [INF] HTTP POST /api/videos/upload responded 401 in 80.8793 ms
+2026-03-12 19:40:31.905 -03:00 [WRN] Acesso não autorizado detectado para: /api/videos/upload
+2026-03-12 19:40:31.906 -03:00 [INF] HTTP POST /api/videos/upload responded 401 in 4.0025 ms
+2026-03-12 19:40:35.639 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:40:35.640 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:40:35.648 -03:00 [INF] HTTP GET /health responded 200 in 5.1987 ms
+2026-03-12 19:40:35.648 -03:00 [INF] Received HTTP response headers after 5.6764ms - 200
+2026-03-12 19:40:35.651 -03:00 [INF] End processing HTTP request after 12.8238ms - 200
+2026-03-12 19:40:45.667 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:40:45.670 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:40:45.679 -03:00 [INF] HTTP GET /health responded 200 in 6.4074 ms
+2026-03-12 19:40:45.679 -03:00 [INF] Received HTTP response headers after 7.3148ms - 200
+2026-03-12 19:40:45.686 -03:00 [INF] End processing HTTP request after 18.4583ms - 200
+2026-03-12 19:40:54.401 -03:00 [INF] HTTP POST /api/auth/register responded 201 in 369.0107 ms
+2026-03-12 19:40:55.697 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:40:55.699 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:40:55.707 -03:00 [INF] HTTP GET /health responded 200 in 6.8953 ms
+2026-03-12 19:40:55.707 -03:00 [INF] Received HTTP response headers after 7.5029ms - 200
+2026-03-12 19:40:55.710 -03:00 [INF] End processing HTTP request after 13.0934ms - 200
+2026-03-12 19:41:04.272 -03:00 [INF] HTTP POST /api/auth/login responded 200 in 116.9039 ms
+2026-03-12 19:41:05.725 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:41:05.727 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:41:05.859 -03:00 [INF] HTTP GET /health responded 200 in 130.3294 ms
+2026-03-12 19:41:05.859 -03:00 [INF] Received HTTP response headers after 130.9891ms - 200
+2026-03-12 19:41:05.864 -03:00 [INF] End processing HTTP request after 138.5971ms - 200
+2026-03-12 19:41:15.876 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:41:15.877 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:41:15.885 -03:00 [INF] HTTP GET /health responded 200 in 5.4039 ms
+2026-03-12 19:41:15.885 -03:00 [INF] Received HTTP response headers after 6.1637ms - 200
+2026-03-12 19:41:15.892 -03:00 [INF] End processing HTTP request after 16.754ms - 200
+2026-03-12 19:41:23.438 -03:00 [INF] HTTP POST /api/videos/upload responded 413 in 60.7095 ms
+2026-03-12 19:41:25.903 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:41:25.907 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:41:25.918 -03:00 [INF] HTTP GET /health responded 200 in 6.7415 ms
+2026-03-12 19:41:25.918 -03:00 [INF] Received HTTP response headers after 7.5414ms - 200
+2026-03-12 19:41:25.924 -03:00 [INF] End processing HTTP request after 21.1417ms - 200
+2026-03-12 19:41:35.932 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:41:35.938 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:41:35.946 -03:00 [INF] HTTP GET /health responded 200 in 5.9998 ms
+2026-03-12 19:41:35.946 -03:00 [INF] Received HTTP response headers after 6.6815ms - 200
+2026-03-12 19:41:35.950 -03:00 [INF] End processing HTTP request after 17.9266ms - 200
+2026-03-12 19:41:43.702 -03:00 [INF] HTTP POST /api/videos/upload responded 413 in 15.5450 ms
+2026-03-12 19:41:45.954 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:41:45.956 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:41:45.965 -03:00 [INF] HTTP GET /health responded 200 in 6.7464 ms
+2026-03-12 19:41:45.965 -03:00 [INF] Received HTTP response headers after 7.6529ms - 200
+2026-03-12 19:41:45.976 -03:00 [INF] End processing HTTP request after 22.0655ms - 200
+2026-03-12 19:41:47.887 -03:00 [INF] HTTP POST /api/videos/upload responded 413 in 3.0988 ms
+2026-03-12 19:41:55.997 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:41:56.001 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:41:56.016 -03:00 [INF] HTTP GET /health responded 200 in 4.4867 ms
+2026-03-12 19:41:56.016 -03:00 [INF] Received HTTP response headers after 10.7359ms - 200
+2026-03-12 19:41:56.021 -03:00 [INF] End processing HTTP request after 23.9076ms - 200
+2026-03-12 19:42:06.037 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:42:06.040 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:42:06.048 -03:00 [INF] HTTP GET /health responded 200 in 5.6132 ms
+2026-03-12 19:42:06.048 -03:00 [INF] Received HTTP response headers after 6.3125ms - 200
+2026-03-12 19:42:06.051 -03:00 [INF] End processing HTTP request after 13.4456ms - 200
+2026-03-12 19:42:16.062 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:42:16.066 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:42:16.076 -03:00 [INF] HTTP GET /health responded 200 in 6.2650 ms
+2026-03-12 19:42:16.077 -03:00 [INF] Received HTTP response headers after 7.0306ms - 200
+2026-03-12 19:42:16.083 -03:00 [INF] End processing HTTP request after 21.36ms - 200
+2026-03-12 19:42:26.091 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:42:26.095 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:42:26.102 -03:00 [INF] HTTP GET /health responded 200 in 5.0913 ms
+2026-03-12 19:42:26.103 -03:00 [INF] Received HTTP response headers after 5.8557ms - 200
+2026-03-12 19:42:26.108 -03:00 [INF] End processing HTTP request after 16.5221ms - 200
+2026-03-12 19:42:36.121 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:42:36.125 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:42:36.134 -03:00 [INF] HTTP GET /health responded 200 in 5.7537 ms
+2026-03-12 19:42:36.134 -03:00 [INF] Received HTTP response headers after 6.4292ms - 200
+2026-03-12 19:42:36.139 -03:00 [INF] End processing HTTP request after 18.1768ms - 200
+2026-03-12 19:42:46.155 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:42:46.161 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:42:46.169 -03:00 [INF] HTTP GET /health responded 200 in 5.0875 ms
+2026-03-12 19:42:46.169 -03:00 [INF] Received HTTP response headers after 5.6704ms - 200
+2026-03-12 19:42:46.172 -03:00 [INF] End processing HTTP request after 17.3633ms - 200
+2026-03-12 19:42:56.180 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:42:56.182 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:42:56.189 -03:00 [INF] HTTP GET /health responded 200 in 5.7928 ms
+2026-03-12 19:42:56.189 -03:00 [INF] Received HTTP response headers after 6.2797ms - 200
+2026-03-12 19:42:56.192 -03:00 [INF] End processing HTTP request after 12.0654ms - 200
+2026-03-12 19:43:03.040 -03:00 [INF] HTTP POST /api/videos/upload responded 413 in 2.3069 ms
+2026-03-12 19:43:06.201 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:43:06.203 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:43:06.211 -03:00 [INF] HTTP GET /health responded 200 in 5.8629 ms
+2026-03-12 19:43:06.211 -03:00 [INF] Received HTTP response headers after 6.4731ms - 200
+2026-03-12 19:43:06.214 -03:00 [INF] End processing HTTP request after 12.81ms - 200
+2026-03-12 19:43:16.230 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:43:16.231 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:43:16.239 -03:00 [INF] HTTP GET /health responded 200 in 5.7702 ms
+2026-03-12 19:43:16.239 -03:00 [INF] Received HTTP response headers after 6.4572ms - 200
+2026-03-12 19:43:16.243 -03:00 [INF] End processing HTTP request after 13.3663ms - 200
+2026-03-12 19:43:26.256 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:43:26.259 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:43:26.267 -03:00 [INF] HTTP GET /health responded 200 in 6.3268 ms
+2026-03-12 19:43:26.268 -03:00 [INF] Received HTTP response headers after 6.966ms - 200
+2026-03-12 19:43:26.273 -03:00 [INF] End processing HTTP request after 16.9128ms - 200
+2026-03-12 19:43:36.289 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:43:36.290 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:43:36.297 -03:00 [INF] HTTP GET /health responded 200 in 5.4944 ms
+2026-03-12 19:43:36.297 -03:00 [INF] Received HTTP response headers after 6.021ms - 200
+2026-03-12 19:43:36.301 -03:00 [INF] End processing HTTP request after 11.3328ms - 200
+2026-03-12 19:43:46.317 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:43:46.320 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:43:46.356 -03:00 [INF] HTTP GET /health responded 200 in 33.5814 ms
+2026-03-12 19:43:46.356 -03:00 [INF] Received HTTP response headers after 34.4268ms - 200
+2026-03-12 19:43:46.363 -03:00 [INF] End processing HTTP request after 46.3744ms - 200
+2026-03-12 19:43:56.370 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:43:56.373 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:43:56.390 -03:00 [INF] HTTP GET /health responded 200 in 7.0083 ms
+2026-03-12 19:43:56.390 -03:00 [INF] Received HTTP response headers after 14.8371ms - 200
+2026-03-12 19:43:56.394 -03:00 [INF] End processing HTTP request after 23.7959ms - 200
+2026-03-12 19:44:06.587 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:44:07.327 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:44:07.369 -03:00 [INF] HTTP GET /health responded 200 in 30.6939 ms
+2026-03-12 19:44:07.370 -03:00 [INF] Received HTTP response headers after 32.3307ms - 200
+2026-03-12 19:44:07.387 -03:00 [INF] End processing HTTP request after 800.1623ms - 200
+2026-03-12 19:44:17.409 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:44:17.413 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:44:17.422 -03:00 [INF] HTTP GET /health responded 200 in 6.6895 ms
+2026-03-12 19:44:17.422 -03:00 [INF] Received HTTP response headers after 7.4767ms - 200
+2026-03-12 19:44:17.432 -03:00 [INF] End processing HTTP request after 22.7026ms - 200
+2026-03-12 19:44:27.438 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:44:27.440 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:44:27.448 -03:00 [INF] HTTP GET /health responded 200 in 6.1184 ms
+2026-03-12 19:44:27.448 -03:00 [INF] Received HTTP response headers after 7.0338ms - 200
+2026-03-12 19:44:27.452 -03:00 [INF] End processing HTTP request after 13.9898ms - 200
+2026-03-12 19:44:37.464 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:44:37.466 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:44:37.476 -03:00 [INF] HTTP GET /health responded 200 in 7.4329 ms
+2026-03-12 19:44:37.476 -03:00 [INF] Received HTTP response headers after 8.2629ms - 200
+2026-03-12 19:44:37.483 -03:00 [INF] End processing HTTP request after 18.6918ms - 200
+2026-03-12 19:44:47.490 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:44:47.495 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:44:47.506 -03:00 [INF] HTTP GET /health responded 200 in 7.7525 ms
+2026-03-12 19:44:47.506 -03:00 [INF] Received HTTP response headers after 8.4089ms - 200
+2026-03-12 19:44:47.513 -03:00 [INF] End processing HTTP request after 22.691ms - 200
+2026-03-12 19:44:57.522 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:44:57.525 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:44:57.532 -03:00 [INF] HTTP GET /health responded 200 in 5.4384 ms
+2026-03-12 19:44:57.532 -03:00 [INF] Received HTTP response headers after 6.179ms - 200
+2026-03-12 19:44:57.538 -03:00 [INF] End processing HTTP request after 15.5074ms - 200
+2026-03-12 19:45:07.550 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:45:07.553 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:45:07.560 -03:00 [INF] HTTP GET /health responded 200 in 5.2160 ms
+2026-03-12 19:45:07.560 -03:00 [INF] Received HTTP response headers after 5.7441ms - 200
+2026-03-12 19:45:07.563 -03:00 [INF] End processing HTTP request after 13.7379ms - 200
+2026-03-12 19:45:17.577 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:45:17.580 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:45:17.587 -03:00 [INF] HTTP GET /health responded 200 in 4.4780 ms
+2026-03-12 19:45:17.587 -03:00 [INF] Received HTTP response headers after 5.3597ms - 200
+2026-03-12 19:45:17.589 -03:00 [INF] End processing HTTP request after 12.6609ms - 200
+2026-03-12 19:45:33.967 -03:00 [INF] Iniciando FIAP X - Sistema de Processamento de Vídeos...
+2026-03-12 19:45:35.173 -03:00 [INF] Iniciando inicialização do banco de dados...
+2026-03-12 19:45:36.465 -03:00 [INF] Banco de dados inicializado com sucesso.
+2026-03-12 19:45:36.672 -03:00 [INF] Initializing UI Database
+2026-03-12 19:45:36.778 -03:00 [INF] Saving healthchecks configuration to database
+2026-03-12 19:45:36.975 -03:00 [WRN] The WebRootPath was not found: C:\Users\alexandre.santos\Desktop\Hackaton\fiapx-api\src\FiapX.API\wwwroot. Static files may be unavailable.
+2026-03-12 19:45:37.128 -03:00 [INF] Now listening on: https://localhost:7036
+2026-03-12 19:45:37.129 -03:00 [INF] Now listening on: http://localhost:7035
+2026-03-12 19:45:37.327 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:45:37.335 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:45:37.438 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-12 19:45:37.440 -03:00 [INF] Hosting environment: Development
+2026-03-12 19:45:37.442 -03:00 [INF] Content root path: C:\Users\alexandre.santos\Desktop\Hackaton\fiapx-api\src\FiapX.API
+2026-03-12 19:45:37.799 -03:00 [INF] HTTP GET /health responded 200 in 236.9015 ms
+2026-03-12 19:45:37.801 -03:00 [INF] Received HTTP response headers after 457.9191ms - 200
+2026-03-12 19:45:37.811 -03:00 [INF] End processing HTTP request after 491.1061ms - 200
+2026-03-12 19:45:38.870 -03:00 [INF] HTTP GET /swagger/index.html responded 200 in 98.5914 ms
+2026-03-12 19:45:39.544 -03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 144.1246 ms
+2026-03-12 19:45:48.134 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:45:48.137 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:45:48.151 -03:00 [INF] HTTP GET /health responded 200 in 11.4666 ms
+2026-03-12 19:45:48.151 -03:00 [INF] Received HTTP response headers after 13.2281ms - 200
+2026-03-12 19:45:48.153 -03:00 [INF] End processing HTTP request after 19.4548ms - 200
+2026-03-12 19:45:58.177 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:45:58.179 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:45:58.190 -03:00 [INF] HTTP GET /health responded 200 in 8.6765 ms
+2026-03-12 19:45:58.190 -03:00 [INF] Received HTTP response headers after 10.0255ms - 200
+2026-03-12 19:45:58.193 -03:00 [INF] End processing HTTP request after 15.9326ms - 200
+2026-03-12 19:46:08.198 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:46:08.203 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:46:08.207 -03:00 [INF] RabbitMQ conectado e fila video-processing declarada
+2026-03-12 19:46:08.214 -03:00 [INF] HTTP GET /health responded 200 in 8.8901 ms
+2026-03-12 19:46:08.246 -03:00 [INF] Received HTTP response headers after 41.9548ms - 200
+2026-03-12 19:46:08.250 -03:00 [INF] End processing HTTP request after 52.3454ms - 200
+2026-03-12 19:46:08.292 -03:00 [INF] EmailNotificationService conectado à fila email-queue
+2026-03-12 19:46:08.317 -03:00 [INF] HTTP POST /api/videos/upload responded 400 in 520.6691 ms
+2026-03-12 19:46:18.256 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:46:18.259 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:46:18.267 -03:00 [INF] HTTP GET /health responded 200 in 6.4493 ms
+2026-03-12 19:46:18.268 -03:00 [INF] Received HTTP response headers after 7.61ms - 200
+2026-03-12 19:46:18.271 -03:00 [INF] End processing HTTP request after 14.8767ms - 200
+2026-03-12 19:46:28.294 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:46:28.297 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:46:28.304 -03:00 [INF] HTTP GET /health responded 200 in 5.6392 ms
+2026-03-12 19:46:28.305 -03:00 [INF] Received HTTP response headers after 6.3337ms - 200
+2026-03-12 19:46:28.309 -03:00 [INF] End processing HTTP request after 14.987ms - 200
+2026-03-12 19:46:38.325 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:46:38.329 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:46:38.337 -03:00 [INF] HTTP GET /health responded 200 in 5.8061 ms
+2026-03-12 19:46:38.337 -03:00 [INF] Received HTTP response headers after 6.2283ms - 200
+2026-03-12 19:46:38.341 -03:00 [INF] End processing HTTP request after 16.0662ms - 200
+2026-03-12 19:46:48.214 -03:00 [INF] HTTP GET /swagger/index.html responded 200 in 1.0337 ms
+2026-03-12 19:46:48.421 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:46:48.469 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:46:48.479 -03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 19.1550 ms
+2026-03-12 19:46:48.492 -03:00 [INF] HTTP GET /health responded 200 in 20.7715 ms
+2026-03-12 19:46:48.493 -03:00 [INF] Received HTTP response headers after 21.5465ms - 200
+2026-03-12 19:46:48.496 -03:00 [INF] End processing HTTP request after 75.5325ms - 200
+2026-03-12 19:46:50.773 -03:00 [INF] HTTP GET /swagger/index.html responded 200 in 0.6575 ms
+2026-03-12 19:46:50.889 -03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 15.8618 ms
+2026-03-12 19:46:59.083 -03:00 [INF] Iniciando FIAP X - Sistema de Processamento de Vídeos...
+2026-03-12 19:47:01.698 -03:00 [INF] Iniciando inicialização do banco de dados...
+2026-03-12 19:47:04.067 -03:00 [INF] Banco de dados inicializado com sucesso.
+2026-03-12 19:47:04.316 -03:00 [INF] Initializing UI Database
+2026-03-12 19:47:04.417 -03:00 [INF] Saving healthchecks configuration to database
+2026-03-12 19:47:04.594 -03:00 [WRN] The WebRootPath was not found: C:\Users\alexandre.santos\Desktop\Hackaton\fiapx-api\src\FiapX.API\wwwroot. Static files may be unavailable.
+2026-03-12 19:47:04.780 -03:00 [INF] Now listening on: https://localhost:7036
+2026-03-12 19:47:04.783 -03:00 [INF] Now listening on: http://localhost:7035
+2026-03-12 19:47:05.164 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:47:05.171 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:47:05.225 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-12 19:47:05.228 -03:00 [INF] Hosting environment: Development
+2026-03-12 19:47:05.230 -03:00 [INF] Content root path: C:\Users\alexandre.santos\Desktop\Hackaton\fiapx-api\src\FiapX.API
+2026-03-12 19:47:05.783 -03:00 [INF] HTTP GET /health responded 200 in 259.7217 ms
+2026-03-12 19:47:05.793 -03:00 [INF] Received HTTP response headers after 616.6478ms - 200
+2026-03-12 19:47:05.801 -03:00 [INF] End processing HTTP request after 639.7225ms - 200
+2026-03-12 19:47:07.556 -03:00 [INF] HTTP GET /swagger/index.html responded 200 in 91.6016 ms
+2026-03-12 19:47:07.953 -03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 162.3581 ms
+2026-03-12 19:47:16.110 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:47:16.114 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:47:16.127 -03:00 [INF] HTTP GET /health responded 200 in 11.3493 ms
+2026-03-12 19:47:16.127 -03:00 [INF] Received HTTP response headers after 12.7126ms - 200
+2026-03-12 19:47:16.130 -03:00 [INF] End processing HTTP request after 19.7046ms - 200
+2026-03-12 19:47:26.157 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:47:26.162 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:47:26.171 -03:00 [INF] HTTP GET /health responded 200 in 7.4481 ms
+2026-03-12 19:47:26.172 -03:00 [INF] Received HTTP response headers after 8.9843ms - 200
+2026-03-12 19:47:26.174 -03:00 [INF] End processing HTTP request after 16.5397ms - 200
+2026-03-12 19:47:32.305 -03:00 [INF] RabbitMQ conectado e fila video-processing declarada
+2026-03-12 19:47:32.370 -03:00 [INF] EmailNotificationService conectado à fila email-queue
+2026-03-12 19:47:32.680 -03:00 [INF] Mensagem publicada para processamento do vídeo "7c89445f-a31a-4707-a798-e2cca7a7b494"
+2026-03-12 19:47:32.711 -03:00 [INF] HTTP POST /api/videos/upload responded 201 in 840.3230 ms
+2026-03-12 19:47:36.187 -03:00 [INF] Start processing HTTP request GET https://localhost:7036/health
+2026-03-12 19:47:36.189 -03:00 [INF] Sending HTTP request GET https://localhost:7036/health
+2026-03-12 19:47:36.197 -03:00 [INF] HTTP GET /health responded 200 in 6.5783 ms
+2026-03-12 19:47:36.197 -03:00 [INF] Received HTTP response headers after 7.3828ms - 200
+2026-03-12 19:47:36.200 -03:00 [INF] End processing HTTP request after 13.2059ms - 200
