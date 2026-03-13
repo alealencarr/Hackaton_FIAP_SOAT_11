@@ -1,12 +1,12 @@
-# 🎬 FIAP X - API Principal
+# FIAP X - API Principal
 
 Sistema de processamento de vídeos com extração de frames.
 
-## 🏗️ Arquitetura
+##  Arquitetura / Fluxo de comunicação
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  fiapx-api  │────▶│  RabbitMQ   │────▶│fiapx-worker │
+│  fiapx-api  │───▶│  RabbitMQ    │───▶│fiapx-worker │
 └─────────────┘     └─────────────┘     └─────────────┘
        │                   │
        │                   ▼
@@ -19,17 +19,14 @@ Sistema de processamento de vídeos com extração de frames.
 └─────────────┘
 ```
 
-## 🚀 Executar Local
+##  Executar Local
 
 ```bash
-# Docker Compose (recomendado)
+# Docker Compose
 docker-compose up -d
-
-# Ou manualmente
-dotnet run --project src/FiapX.API
 ```
 
-## 📡 Endpoints
+## Endpoints
 
 | Método | Rota | Descrição |
 |--------|------|-----------|
@@ -40,12 +37,12 @@ dotnet run --project src/FiapX.API
 | GET | /api/videos/{id} | Detalhes do vídeo |
 | GET | /api/videos/{id}/download | Download ZIP |
 
-## 🧪 Testes
+##  Testes
 
 ```bash
 dotnet test --collect:"XPlat Code Coverage"
 ```
 
-## ☁️ Deploy
+## Deploy
 
-Ver pasta `infra/` para Terraform e Kubernetes.
+Pasta `infra/` para Terraform e Kubernetes.
